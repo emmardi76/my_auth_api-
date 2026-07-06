@@ -1,0 +1,25 @@
+# Environment variables – never commit real secrets
+.env
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*.pyo
+
+# SQLite databases
+*.db
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Pytest cache
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
