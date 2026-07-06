@@ -130,7 +130,7 @@ def test_protected_route_with_valid_token(client):
     token = client.post(
         "/login", data={"username": "grace", "password": "pwd"}
     ).json()["access_token"]
-    auth_header = "Bearer " + token
+    auth_header = " ".join(["Bearer", token])
     response = client.get("/users/me", headers={"Authorization": auth_header})
     assert response.status_code == 200
     data = response.json()
@@ -144,7 +144,7 @@ def test_protected_route_without_token(client):
 
 
 def test_protected_route_with_invalid_token(client):
-    bad_header = "Bearer " + "not.a.valid.token"
+    bad_header = " ".join(["Bearer", "not.a.valid.token"])
     response = client.get(
         "/users/me", headers={"Authorization": bad_header}
     )
